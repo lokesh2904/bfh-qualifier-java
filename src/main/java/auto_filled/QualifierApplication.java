@@ -28,13 +28,13 @@ public class QualifierApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		// Step 1: Generate webhook and token
+
 		String url = "https://bfhldevapigw.healthrx.co.in/hiring/generateWebhook/JAVA";
 
 		RestTemplate client = restTemplate();
 
 		Map<String, String> body = new HashMap<>();
-		body.put("name", "Lokesh");
+		body.put("name", "MAYAKUNTLA LOKESH");
 		body.put("regNo", "22BCE9911");
 		body.put("email", "lokelucky2004@gmail.com");
 
@@ -46,7 +46,7 @@ public class QualifierApplication implements CommandLineRunner {
 		System.out.println("Webhook URL: " + webhook);
 		System.out.println("Access Token: " + accessToken);
 
-		// Step 2: Your FINAL SQL query
+		
 		String finalQuery = "SELECT d.DEPARTMENT_NAME, "
 				+ "ROUND(AVG(DATEDIFF(YEAR, e.DOB, GETDATE())), 2) AS AVERAGE_AGE, "
 				+ "STRING_AGG(CONCAT(e.FIRST_NAME, ' ', e.LAST_NAME), ', ') "
@@ -58,7 +58,7 @@ public class QualifierApplication implements CommandLineRunner {
 				+ "GROUP BY d.DEPARTMENT_ID, d.DEPARTMENT_NAME "
 				+ "ORDER BY d.DEPARTMENT_ID DESC;";
 
-		// Step 3: Submit SQL to webhook
+		
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Authorization", accessToken);
 		headers.setContentType(MediaType.APPLICATION_JSON);
